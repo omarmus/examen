@@ -9,7 +9,7 @@ const Op = Sequelize.Op;
 module.exports = function (models) {
   api.get('/consulta/:query', async (req, res, next) => {
     const { query } = req.params;
-    console.log('MODELS', models);
+
     let result;
     try {
       result = await models.hammers.findAll({

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <section>
-      hola mundo      
+    <section class="app-main">
+      <router-view />
     </section>
     <app-footer></app-footer>
   </div>
@@ -13,11 +13,6 @@ import AppHeader from './components/Header';
 import AppFooter from './components/Footer';
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
   components: {
     AppHeader,
     AppFooter

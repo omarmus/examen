@@ -2,6 +2,7 @@
 
 const { ModelHandler } = require('sequelize-handlers');
 const apiRest = '/api-rest/';
+const util = require('../lib/util');
 const types = {
   'post': {
     params: '',
@@ -25,8 +26,6 @@ const types = {
   }
 };
 
-let models;
-
 function filterModel (model) {
   let pos = model.indexOf('?');
   if (pos !== -1) {
@@ -37,17 +36,23 @@ function filterModel (model) {
 }
 
 function init (app, sequelize) {
-  // Cargando los modelos manualmente
-  const Hammer = require('./hammer')(sequelize);
+  // Cargando todos los modelos que se encuentran en la carpeta models y en sus subcarpetas
+  console.log('PATH', __dirname);
+  let models = util.loadModels(__dirname, sequelize, { exclude: ['index.js'] });
+  // models = util.convertLinealObject(models);
 
-  models = {
-    hammers: Hammer
-  };
+  const { empresas, usuarios } = models;
+
+  // Definiendo relaciones
+  empresas.hasMany(usuarios, { foreignKey: { name: 'id_empresa', allowNull: false } });
+  usuarios.belongsTo(empresas, { foreignKey: { name: 'id_empresa', allowNull: false } });
 
   // Creando manejadores sequelize-handler para cada modelo
-  let handlers = {
-    hammers: new ModelHandler(Hammer)
-  };
+  let handlers = {};
+
+  for (let i in models) {
+    handlers[i] = new ModelHandler(models[i]);
+  }
 
   app.all(`${apiRest}*`, function (req, res, next) {
     let method = req.method.toLowerCase();

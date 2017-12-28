@@ -4,19 +4,20 @@ const Sequelize = require('sequelize');
 
 module.exports = function (sequelize) {
   // Define a Sequelize model
-  const Hammer = sequelize.define('Hammer', {
+  const Usuario = sequelize.define('usuarios', {
     id: {
       primaryKey: true,
       autoIncrement: true,
       type: Sequelize.INTEGER
     },
-    name: {
-      type: Sequelize.STRING
+    nombre: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    type: {
+    email: {
       type: Sequelize.STRING
     }
   });
 
-  return Hammer;
+  return Usuario;
 };

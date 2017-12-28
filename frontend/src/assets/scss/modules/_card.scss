@@ -1,0 +1,35 @@
+@import '../_variables.scss';
+
+.card {
+  box-sizing: border-box;
+  box-shadow: 0 0 20px 0 rgba(62, 28, 131, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
+  border-radius: 2px;
+
+  .card-header {
+    // background-color: lighten($primary, 5%);
+    background-color: white;
+    // color: white;
+    border-bottom: 1px solid #eee;
+    font-family: 'Abel';
+    font-weight: 400;
+    padding: 10px 15px;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .card-body {
+    padding: 20px;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .tabs {
+    .card-body {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

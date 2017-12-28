@@ -1,5 +1,82 @@
-@import '_normalize.scss';
+@import '_variables.scss';
+@import 'vendor/normalize.scss';
+@import 'modules/index.scss';
 
 body {
-  font: 12px Arial, Helvetica, serif;
+  font: normal 16px 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  background-image: url(assets/images/fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    background-color: rgba(255, 255, 255, .9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.app-main {
+  box-sizing: border-box;
+  padding: 30px;
+  max-width: 1080px;
+  margin: 0 auto;  
+}
+
+#app {    
+  height: 100vh;  
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: 400;
+  font-family: 'Gloria Hallelujah';
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 15px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 15px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin: 0 0 15px;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin: 0 0 15px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
 }

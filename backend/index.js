@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 const cors = require('cors');
 const port = 4000;
 const api = require('./api');
+const hook = require('./lib/hook');
 
 // Create the Sequelize instance
 const sequelize = new Sequelize('sqlite://examen.sqlite');
@@ -14,6 +15,7 @@ const sequelize = new Sequelize('sqlite://examen.sqlite');
 // Create the Express application
 const app = express();
 const models = require('./models').init(app, sequelize);
+hook.validate(sequelize);
 
 app.use(cors());
 app.use(bodyParser.json());
