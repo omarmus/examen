@@ -1,31 +1,26 @@
 # Frontend
 
+## Instalando Node.js v8.x:
 
-> Install Node.js v8.x:
-
-NOTE: Debian Wheezy packages are NOT available for this release. Please reference running Node.js >= 4.x on older distros.
+NOTA.- Debian Wheezy no soporta Node 8
 
 ``` bash
-# Using Ubuntu
+# Para Ubuntu
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# Using Debian, as root
+# Para Debian, instalar como root
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get install -y nodejs
 ```
 
-> A Vue.js project
+## Instalando el proyecto
 
-## Build Setup
+Siga los siguientes pasos:
 
 ``` bash
-# install dependencies
+# 1. Instalar dependencias
 npm install
 
-# serve with hot reload at localhost:8080
+# 2. Iniciar el servidor del proyecto en http://localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-```
