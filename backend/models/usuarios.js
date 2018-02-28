@@ -10,12 +10,18 @@ module.exports = function (sequelize) {
       autoIncrement: true,
       type: Sequelize.INTEGER
     },
+    username: {
+      type: Sequelize.STRING
+    },
+    email: {
+      type: Sequelize.STRING
+    },
     nombre: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    email: {
-      type: Sequelize.STRING
+    edad: {
+      type: Sequelize.INTEGER
     }
   });
 

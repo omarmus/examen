@@ -14,10 +14,10 @@ const sequelize = new Sequelize('sqlite://examen.sqlite');
 
 // Create the Express application
 const app = express();
+app.use(cors());
 const models = require('./models').init(app, sequelize);
 hook.validate(sequelize);
 
-app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', api(models));
 
